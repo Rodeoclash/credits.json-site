@@ -1,0 +1,49 @@
+<div class="ui fixed transparent inverted main menu">
+    <div class="container">
+      <div class="title item">
+        credits.json
+      </div>
+      <div class="right menu">
+        <div class="vertically fitted borderless item">
+          <iframe src="http://ghbtns.com/github-btn.html?user=semantic-org&amp;repo=semantic-ui&amp;type=watch&amp;count=true" allowtransparency="true" frameborder="0" scrolling="0" width="95" height="20"></iframe>
+        </div>
+        <a class="popup icon github item" data-content="View project on Github" href="https://github.com/quirkyinc/semantic">
+          <i class="icon github"></i>
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="ui two column divided grid">
+  <div class="row">
+    <div class="column">
+
+      <h3>Build</h3>
+
+      <h4>People</h4>
+
+      <div ng:show="data.people.length > 0">
+        <div class="ui piled segment" ng:repeat="person in data.people">
+          <h2 ng:show="person.name"><img ng:show="person.id" class="ui avatar image" src="http://www.gravatar.com/avatar/{{person.id}}"> {{person.name}}</h2>
+          <generator:person:form model="person"></generator:person:form>
+        </div>
+      </div>
+
+      <p ng:show="data.people.length == 0">No people created yet.</p>
+
+      <p>
+        <span class="ui labeled icon button" ng:click="add_person()">
+          <i class="add icon"></i>
+          Add person
+        </span>
+      </p>
+
+    </div>
+    <div class="column">
+      <h3>JSON</h3>
+      <p>Copy and paste this into a "credits.json" file then upload to the root of your domain.</p>
+      <pre>{{data|json}}</pre>
+    </div>
+  </div>
+</div>
