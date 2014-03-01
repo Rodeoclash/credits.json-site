@@ -27,13 +27,22 @@
         <div class="ui piled segment" ng:repeat="person in data.people">
           <h2 ng:show="person.name"><img ng:show="person.id" class="ui avatar image" src="http://www.gravatar.com/avatar/{{person.id}}"> {{person.name}}</h2>
           <generator:person:form model="person"></generator:person:form>
+          <div class="ui horizontal divider">
+            Controls
+          </div>
+          <p>
+            <span class="ui tiny red labeled icon button" ng:click="remove_person(person)">
+              <i class="delete icon"></i>
+              Remove this person
+            </span>
+          </p>
         </div>
       </div>
 
       <p ng:show="data.people.length == 0">No people created yet.</p>
 
       <p>
-        <span class="ui labeled icon button" ng:click="add_person()">
+        <span class="ui tiny green labeled icon button" ng:click="add_person()">
           <i class="add icon"></i>
           Add person
         </span>

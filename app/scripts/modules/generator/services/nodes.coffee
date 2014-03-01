@@ -7,7 +7,10 @@ angular.module('creditsGenerator')
 
 			person: ->
 				{
-					id: "",
-					name: "",
-					location: "",
+					_id: _.uniqueId()
+					id: ""
+					name: ""
+					location: ""
+					extras: {}
 				}
+

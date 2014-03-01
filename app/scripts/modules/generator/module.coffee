@@ -2,7 +2,7 @@
 
 angular.module('creditsGenerator', [
 	'creditsjsonSiteApp'
-	'ngRoute'
+	'ngAutocomplete'
 ])
 
 	.constant('MODULES_PATH', '/scripts/modules')

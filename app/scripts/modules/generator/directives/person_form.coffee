@@ -10,8 +10,10 @@ angular.module('creditsGenerator')
 		link: (scope, element, attrs) ->
 			
 			scope.$watch('email', (v) ->
-				return unless v?
-				scope.model.id = CryptoJS.MD5(v).toString()
+				if v?
+					scope.model.id = CryptoJS.MD5(v).toString()
+				else
+					scope.model.id = ""
 			)
 
 	)

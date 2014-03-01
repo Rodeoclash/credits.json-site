@@ -18,6 +18,43 @@
 			</div>
 		</div>
 
+		<div class="field">
+			<label>Location</label>
+			<div class="ui left labeled icon input">
+				<input type="text" placeholder="Your location. Be as precise or general as you want." ng:model="model.location" ng:autocomplete required>
+				<i class="map icon"></i>
+			</div>
+		</div>
+
+		<h4>More</h4>
+
+		<div class="ui two column grid">
+			<div class="row">
+				<div class="column">
+					<div class="ui vertical menu">
+						<a class="active item">
+							Homepage
+						</a>
+						<a class="item">
+							Twitter Handle
+						</a>
+						<a class="item">
+							Stack Overflow
+						</a>
+					</div>
+				</div>
+				<div class="column">
+					<div class="field">
+						<label>Homepage</label>
+						<div class="ui left labeled icon input">
+							<input type="text" placeholder="http://" ng:model="model.extras.homepage" ng:autocomplete required>
+							<i class="map icon"></i>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
 	</form>
 
 </div>
