@@ -26,32 +26,33 @@
 			</div>
 		</div>
 
-		<h4>More</h4>
+		<h4>Extras</h4>
 
-		<div class="ui two column grid">
-			<div class="row">
-				<div class="column">
-					<div class="ui vertical menu">
-						<a class="active item">
-							Homepage
-						</a>
-						<a class="item">
-							Twitter Handle
-						</a>
-						<a class="item">
-							Stack Overflow
-						</a>
+		<div class="ui fluid accordion">
+			<div class="title">
+				<i class="dropdown icon"></i>
+				Homepage URL
+			</div>
+			<div class="content">
+				<div class="field">
+					<label>Homepage URL</label>
+					<div class="ui left labeled icon input">
+						<input type="text" placeholder="Your location. Be as precise or general as you want." ng:model="model.location" ng:autocomplete required>
+						<i class="map icon"></i>
 					</div>
 				</div>
-				<div class="column">
-					<div class="field">
-						<label>Homepage</label>
-						<div class="ui left labeled icon input">
-							<input type="text" placeholder="http://" ng:model="model.extras.homepage" ng:autocomplete required>
-							<i class="map icon"></i>
-						</div>
-					</div>
-				</div>
+			</div>
+			<div class="title">
+				<i class="dropdown icon"></i>
+				Stack Overflow Profile
+			</div>
+			<div class="content">
+			</div>
+			<div class="title">
+				<i class="dropdown icon"></i>
+				Twitter Handle
+			</div>
+			<div class="content">
 			</div>
 		</div>
 
