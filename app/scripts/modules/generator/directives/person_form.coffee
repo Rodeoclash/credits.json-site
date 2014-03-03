@@ -1,7 +1,7 @@
 'use strict'
 
 angular.module('creditsGenerator')
-	.directive('generatorPersonForm', (MODULES_PATH) ->
+	.directive('generatorPersonForm', (MODULES_PATH, Extras) ->
 		templateUrl: "#{MODULES_PATH}/generator/views/directives/person_form.html"
 		restrict: 'E'
 		scope: {
@@ -15,5 +15,10 @@ angular.module('creditsGenerator')
 				else
 					scope.model.id = ""
 			)
+
+			scope.extras = Extras.available()
+
+			scope.toggle = (extra) ->
+				console.log(extra)
 
 	)

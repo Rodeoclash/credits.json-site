@@ -3,57 +3,43 @@
 	<form class="ui form">
 
 		<div class="field">
-			<label>Name</label>
+			<label for="name">Name</label>
 			<div class="ui left labeled icon input">
-				<input type="text" placeholder="Your name or alias." ng:model="model.name" required>
+				<input id="name" type="text" placeholder="Your name or alias." ng:model="model.name">
 				<i class="user icon"></i>
 			</div>
 		</div>
 
 		<div class="field">
-			<label>Email</label>
+			<label for="email">Email</label>
 			<div class="ui left labeled icon input">
-				<input type="email" placeholder="Your email address. This is encrypted." ng:model="email" required>
+				<input id="email" type="email" placeholder="Your email address. This is encrypted." ng:model="email" required>
 				<i class="mail icon"></i>
 			</div>
 		</div>
 
 		<div class="field">
-			<label>Location</label>
+			<label id="location">Location</label>
 			<div class="ui left labeled icon input">
-				<input type="text" placeholder="Your location. Be as precise or general as you want." ng:model="model.location" ng:autocomplete required>
+				<input for="location" type="text" placeholder="Your location. Be as precise or general as you want." ng:model="model.location" ng:autocomplete>
 				<i class="map icon"></i>
 			</div>
 		</div>
 
 		<h4>Extras</h4>
+		<p>These are optional extra details about the person. Feel free to add as many or as little as you would like.</p>
 
 		<div class="ui fluid accordion">
-			<div class="title">
+
+			<div class="active title" ng-repeat-start="extra in extras" ng:click="toggle(extra)">
 				<i class="dropdown icon"></i>
-				Homepage URL
+				<label for="{{extra.id}}">{{extra.name}}</label>
 			</div>
-			<div class="content">
-				<div class="field">
-					<label>Homepage URL</label>
-					<div class="ui left labeled icon input">
-						<input type="text" placeholder="Your location. Be as precise or general as you want." ng:model="model.location" ng:autocomplete required>
-						<i class="map icon"></i>
-					</div>
-				</div>
+
+			<div class="active content" ng-repeat-end>
+				<input id="{{extra.id}}" type="text" placeholder="{{extra.placeholder}}" ng:model="model.extras[id]">
 			</div>
-			<div class="title">
-				<i class="dropdown icon"></i>
-				Stack Overflow Profile
-			</div>
-			<div class="content">
-			</div>
-			<div class="title">
-				<i class="dropdown icon"></i>
-				Twitter Handle
-			</div>
-			<div class="content">
-			</div>
+
 		</div>
 
 	</form>

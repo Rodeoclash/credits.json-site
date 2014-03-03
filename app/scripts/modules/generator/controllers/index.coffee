@@ -4,6 +4,7 @@ angular.module('creditsGenerator')
   .controller 'GeneratorIndexCtrl', ($scope, Nodes) ->
 
   	$scope.data = {
+      version: "0.1"
   		people: []
   		organisations: []
   	}
