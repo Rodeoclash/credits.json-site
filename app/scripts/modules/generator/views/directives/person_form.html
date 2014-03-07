@@ -3,41 +3,42 @@
 	<form class="ui form">
 
 		<div class="field">
-			<label for="name">Name</label>
+			<label for="person_name">Name</label>
 			<div class="ui left labeled icon input">
-				<input id="name" type="text" placeholder="Your name or alias." ng:model="model.name">
+				<input id="person_name" type="text" placeholder="Your name or alias." ng:model="model.name">
 				<i class="user icon"></i>
 			</div>
 		</div>
 
 		<div class="field">
-			<label for="email">Email</label>
+			<label for="person_email">Email</label>
 			<div class="ui left labeled icon input">
-				<input id="email" type="email" placeholder="Your email address. This is encrypted." ng:model="email" required>
+				<input id="person_email" type="email" placeholder="Your email address. This is encrypted." ng:model="email" required>
 				<i class="mail icon"></i>
 			</div>
 		</div>
 
 		<div class="field">
-			<label id="location">Location</label>
+			<label id="person_location">Location</label>
 			<div class="ui left labeled icon input">
-				<input for="location" type="text" placeholder="Your location. Be as precise or general as you want." ng:model="model.location" ng:autocomplete>
+				<input for="person_location" type="text" placeholder="Your location. Be as precise or general as you want." ng:model="model.location" ng:autocomplete>
 				<i class="map icon"></i>
 			</div>
 		</div>
 
 		<h4>Extras</h4>
-		<p>These are optional extra details about the person. Feel free to add as many or as little as you would like.</p>
+		<p>These are optional extra details about the person. Feel free to add as many or as little as you like.</p>
 
 		<div class="ui fluid accordion">
 
-			<div class="active title" ng-repeat-start="extra in extras" ng:click="toggle(extra)">
+			<div class="title" ng-repeat-start="extra in extras" ng:click="toggles[extra.id] = !toggles[extra.id]" ng:class="{'active': toggles[extra.id]}">
 				<i class="dropdown icon"></i>
-				<label for="{{extra.id}}">{{extra.name}}</label>
+				<label for="person_{{extra.id}}">{{extra.name}}</label>
 			</div>
 
-			<div class="active content" ng-repeat-end>
-				<input id="{{extra.id}}" type="text" placeholder="{{extra.placeholder}}" ng:model="model.extras[id]">
+			<div class="content" ng:class="{'active': toggles[extra.id] == true}" ng-repeat-end>
+				<input id="person_{{extra.id}}" type="text" placeholder="{{extra.placeholder}}" ng:model="model.extras[extra.id]">
+				<p>{{extra.description}}</p>
 			</div>
 
 		</div>

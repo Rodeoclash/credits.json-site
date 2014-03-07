@@ -14,3 +14,13 @@ angular.module('creditsGenerator')
 					extras: {}
 				}
 
+			organisation: ->
+				{
+					_id: _.uniqueId()
+					id: ""
+					name: ""
+					location: ""
+					extras: {}
+					people: []
+				}
+

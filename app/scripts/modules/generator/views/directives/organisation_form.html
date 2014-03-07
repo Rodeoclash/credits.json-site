@@ -1,0 +1,75 @@
+<div class="directive generator_organisation_form">
+
+	<form class="ui form">
+
+		<div class="field">
+			<label for="organisation_name">Name</label>
+			<div class="ui left labeled icon input">
+				<input id="organisation_name" type="text" placeholder="Name of organisation" ng:model="model.name">
+				<i class="user icon"></i>
+			</div>
+		</div>
+
+		<div class="field">
+			<label for="organisation_homepage">Homepage</label>
+			<div class="ui left labeled icon input">
+				<input id="organisation_homepage" type="url" placeholder="http://www.example.com" ng:model="model.homepage" required>
+				<i class="mail icon"></i>
+			</div>
+		</div>
+
+		<div class="field">
+			<label id="organisation_location">Location</label>
+			<div class="ui left labeled icon input">
+				<input for="organisation_location" type="text" placeholder="The organisations location. Be as precise or general as you want." ng:model="model.location" ng:autocomplete>
+				<i class="map icon"></i>
+			</div>
+		</div>
+
+		<h4>People</h4>
+		<p>People working at this organisation.</p>
+
+	      <div ng:show="model.people.length > 0">
+	        <div class="ui piled segment" ng:repeat="person in model.people">
+	          <h2 ng:show="person.name"><img ng:show="person.id" class="ui avatar image" src="http://www.gravatar.com/avatar/{{person.id}}"> {{person.name}}</h2>
+	          <generator:person:form model="person"></generator:person:form>
+	          <p>
+	            <span class="ui tiny red labeled icon button" ng:click="removePerson(person)">
+	              <i class="delete icon"></i>
+	              <span ng:show="person.name">Remove {{person.name}}</span>
+	              <span ng:show="!person.name">Remove this person</span>
+	            </span>
+	          </p>
+	        </div>
+	      </div>
+
+	      <p ng:show="model.people.length == 0">No people created in this organisation yet.</p>
+
+	      <p>
+	        <span class="ui tiny green labeled icon button" ng:click="addPerson()">
+	          <i class="add icon"></i>
+	          <span ng:show="model.name">Add person to {{model.name}}</span>
+	          <span ng:show="!model.name">Add person</span>
+	        </span>
+	      </p>
+
+		<h4>Extras</h4>
+		<p>These are optional extra details about the organisation. Feel free to add as many or as little as you like.</p>
+
+		<div class="ui fluid accordion">
+
+			<div class="title" ng-repeat-start="extra in extras" ng:click="toggles[extra.id] = !toggles[extra.id]" ng:class="{'active': toggles[extra.id]}">
+				<i class="dropdown icon"></i>
+				<label for="organisation_{{extra.id}}">{{extra.name}}</label>
+			</div>
+
+			<div class="content" ng:class="{'active': toggles[extra.id] == true}" ng-repeat-end>
+				<input id="organisation_{{extra.id}}" type="text" placeholder="{{extra.placeholder}}" ng:model="model.extras[extra.id]">
+				<p>{{extra.description}}</p>
+			</div>
+
+		</div>
+
+	</form>
+
+</div>

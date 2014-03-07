@@ -26,7 +26,7 @@
     <![endif]-->
 
     <!-- Add your site or application content here -->
-    <div class="container" ng-view=""></div>
+    <div class="container full_height" ng-view=""></div>
 
     <!-- Google Analytics: change UA-XXXXX-X to be your site's ID -->
     <script>
@@ -49,12 +49,11 @@
     <script src="bower_components/jquery/dist/jquery.js"></script>
     <script src="bower_components/angular/angular.js"></script>
     <script src="bower_components/angular-route/angular-route.js"></script>
-    <script src="bower_components/angular-route/angular-route.js"></script>
+    <script src="bower_components/ngAutocomplete/src/ngAutocomplete.js"></script>
+    <script src="bower_components/lodash/dist/lodash.compat.js"></script>
+    <!-- endbower -->
     <script src="bower_components/crypto-js/components/core.js"></script>
     <script src="bower_components/crypto-js/components/md5.js"></script>
-    <script src="bower_components/ngAutocomplete/src/ngAutocomplete.js"></script>
-    <script src="bower_components/lodash/dist/lodash.js"></script>
-    <!-- endbower -->
     <!-- endbuild -->
 
         <!-- build:js({.tmp,app}) scripts/scripts.js -->
@@ -66,6 +65,7 @@
         <script src="scripts/modules/generator/services/nodes.js"></script>
         <script src="scripts/modules/generator/services/extras.js"></script>
         <script src="scripts/modules/generator/directives/person_form.js"></script>
+        <script src="scripts/modules/generator/directives/organisation_form.js"></script>
         <!-- endbuild -->
 </body>
 </html>

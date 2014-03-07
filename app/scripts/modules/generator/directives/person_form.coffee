@@ -8,6 +8,8 @@ angular.module('creditsGenerator')
 			model: "="
 		}
 		link: (scope, element, attrs) ->
+
+			scope.toggles = {}
 			
 			scope.$watch('email', (v) ->
 				if v?
@@ -16,9 +18,5 @@ angular.module('creditsGenerator')
 					scope.model.id = ""
 			)
 
-			scope.extras = Extras.available()
-
-			scope.toggle = (extra) ->
-				console.log(extra)
-
+			scope.extras = Extras.personAvailable()
 	)

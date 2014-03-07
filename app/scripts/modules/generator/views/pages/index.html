@@ -1,7 +1,7 @@
 <div class="ui fixed transparent inverted main menu">
     <div class="container">
       <div class="title item">
-        credits.json
+        credits.json generator
       </div>
       <div class="right menu">
         <div class="vertically fitted borderless item">
@@ -15,22 +15,24 @@
   </div>
 </div>
 
-<div class="ui two column divided grid">
-  <div class="row">
-    <div class="column">
+<div class="ui two column divided grid full_height">
+  <div class="row full_height">
+    <div class="column full_height">
 
-      <h3>Build</h3>
+      <h2>Build</h2>
+      <p>Add the organisations and people who worked on the site here.</p>
 
-      <h4>People</h4>
+      <h3>People</h3>
 
       <div ng:show="data.people.length > 0">
         <div class="ui piled segment" ng:repeat="person in data.people">
           <h2 ng:show="person.name"><img ng:show="person.id" class="ui avatar image" src="http://www.gravatar.com/avatar/{{person.id}}"> {{person.name}}</h2>
           <generator:person:form model="person"></generator:person:form>
           <p>
-            <span class="ui tiny red labeled icon button" ng:click="remove_person(person)">
+            <span class="ui tiny red labeled icon button" ng:click="removePerson(person)">
               <i class="delete icon"></i>
-              Remove this person
+              <span ng:show="person.name">Remove {{person.name}}</span>
+              <span ng:show="!person.name">Remove this person</span>
             </span>
           </p>
         </div>
@@ -39,17 +41,48 @@
       <p ng:show="data.people.length == 0">No people created yet.</p>
 
       <p>
-        <span class="ui tiny green labeled icon button" ng:click="add_person()">
+        <span class="ui tiny green labeled icon button" ng:click="addPerson()">
           <i class="add icon"></i>
           Add person
         </span>
       </p>
 
+      <hr>
+
+      <h3>Organisations</h3>
+
+      <div ng:show="data.organisations.length > 0">
+        <div class="ui piled segment" ng:repeat="organisation in data.organisations">
+          <h2 ng:show="person.name">{{organisation.name}}</h2>
+          <generator:organisation:form model="organisation"></generator:organisation:form>
+          <p>
+            <span class="ui tiny red labeled icon button" ng:click="removeOrganisation(organisation)">
+              <i class="delete icon"></i>
+              <span ng:show="organisation.name">Remove {{organisation.name}}</span>
+              <span ng:show="!organisation.name">Remove this organisation</span>
+            </span>
+          </p>
+        </div>
+      </div>
+
+      <p ng:show="data.organisations.length == 0">No organisations created yet.</p>
+
+      <p>
+        <span class="ui tiny green labeled icon button" ng:click="addOrganisation()">
+          <i class="add icon"></i>
+          Add organisation
+        </span>
+      </p>
+
     </div>
-    <div class="column">
-      <h3>JSON</h3>
-      <p>Copy and paste this into a "credits.json" file then upload to the root of your domain.</p>
-      <pre>{{data|json}}</pre>
+
+    <div class="column full_height">
+      <div class="build_output full_height">
+        <h2>JSON</h2>
+        <p>Copy and paste this into a "credits.json" file then upload to the root of your domain.</p>
+        <pre>{{data|json}}</pre>
+      </div>
     </div>
+
   </div>
 </div>

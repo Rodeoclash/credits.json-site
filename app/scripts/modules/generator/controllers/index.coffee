@@ -3,15 +3,24 @@
 angular.module('creditsGenerator')
   .controller 'GeneratorIndexCtrl', ($scope, Nodes) ->
 
-  	$scope.data = {
+    $scope.data = {
       version: "0.1"
-  		people: []
-  		organisations: []
-  	}
+      created_at: new Date().toISOString()
+      people: []
+      organisations: []
+    };
 
-  	$scope.add_person = () ->
-  		$scope.data.people.push(Nodes.person())
+    removeItemFromCollectionById = (collection, id) ->
+      return _.reject(collection, {_id: id});
 
-  	$scope.remove_person = (person) ->
-  		console.log(person)
-  		$scope.data.people = _.reject($scope.data.people, {_id: person._id})
+    $scope.addPerson = () ->
+      $scope.data.people.push(Nodes.person());
+
+    $scope.removePerson = (node) ->
+      $scope.data.people = removeItemFromCollectionById($scope.data.people, node._id);
+
+    $scope.addOrganisation = () ->
+      $scope.data.organisations.push(Nodes.organisation());
+
+    $scope.removeOrganisation = (node) ->
+      $scope.data.organisations = removeItemFromCollectionById($scope.data.organisations, node._id);
