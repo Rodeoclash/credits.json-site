@@ -1,16 +1,20 @@
 'use strict'
 
 angular.module('creditsCore', [
-  'ngRoute'
-  'creditsGenerator'
-  'creditsSiteSubmission'
+	'ngRoute'
+	'creditsGenerator'
+	'creditsSiteSubmission'
 ])
 
-  .constant('MODULES_PATH', '/scripts/modules')
+	.constant('MODULES_PATH', '/scripts/modules')
 
-  .config ($routeProvider) ->
-  	
-    $routeProvider
+	.config ($routeProvider, MODULES_PATH) ->
+		
+		$routeProvider
 
-      .otherwise
-        redirectTo: '/generator' # provided by generator module
+			.when '/',
+				templateUrl: "#{MODULES_PATH}/core/views/pages/index.html"
+				controller: 'CoreIndexCtrl'
+
+			.otherwise
+				redirectTo: '/' # provided by generator module

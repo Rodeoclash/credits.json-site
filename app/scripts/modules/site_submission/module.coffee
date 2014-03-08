@@ -9,6 +9,6 @@ angular.module('creditsSiteSubmission', [
 	.config (MODULES_PATH, $routeProvider) ->
 
 		$routeProvider
-		  .when '/submit_site',
-			templateUrl: "#{MODULES_PATH}/site_submission/views/pages/index.html"
-			controller: 'SiteSubmissionIndexCtrl'
+			.when '/submit_site',
+				templateUrl: "#{MODULES_PATH}/site_submission/views/pages/index.html"
+				controller: 'SiteSubmissionIndexCtrl'
