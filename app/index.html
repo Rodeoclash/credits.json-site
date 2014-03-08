@@ -20,13 +20,13 @@
     <link rel="stylesheet" href="styles/main.css">
     <!-- endbuild -->
   </head>
-  <body ng-app="creditsjsonSiteApp">
+  <body ng-app="creditsCore">
     <!--[if lt IE 7]>
       <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
     <![endif]-->
 
     <!-- Add your site or application content here -->
-    <div class="container full_height" ng-view=""></div>
+    <div class="container" ng-view=""></div>
 
     <!-- Google Analytics: change UA-XXXXX-X to be your site's ID -->
     <script>
@@ -57,7 +57,10 @@
     <!-- endbuild -->
 
         <!-- build:js({.tmp,app}) scripts/scripts.js -->
-        <script src="scripts/app.js"></script>
+
+        <!-- core -->
+        <script src="scripts/modules/core/module.js"></script>
+        <script src="scripts/modules/core/directives/site_header.js"></script>
 
         <!-- generator -->
         <script src="scripts/modules/generator/module.js"></script>
@@ -67,6 +70,11 @@
         <script src="scripts/modules/generator/services/extras.js"></script>
         <script src="scripts/modules/generator/directives/person_form.js"></script>
         <script src="scripts/modules/generator/directives/organisation_form.js"></script>
+
+        <!-- site submission -->
+        <script src="scripts/modules/site_submission/module.js"></script>
+        <script src="scripts/modules/site_submission/controllers/index.js"></script>
+
         <!-- endbuild -->
 </body>
 </html>

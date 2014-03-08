@@ -1,0 +1,15 @@
+{
+  "version": "0.1",
+  "created_at": "2014-03-08T00:29:32.212Z",
+  "people": [
+    {
+      "id": "e95e5c3460a8e69d34c5544b833100e2",
+      "name": "Samuel Richardson",
+      "location": "Melbourne, Victoria, Australia",
+      "extras": {
+        "homepage": "http://www.richardson.co.nz"
+      }
+    }
+  ],
+  "organisations": []
+}

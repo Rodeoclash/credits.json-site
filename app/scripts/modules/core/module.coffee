@@ -1,8 +1,9 @@
 'use strict'
 
-angular.module('creditsjsonSiteApp', [
+angular.module('creditsCore', [
   'ngRoute'
   'creditsGenerator'
+  'creditsSiteSubmission'
 ])
 
   .constant('MODULES_PATH', '/scripts/modules')
