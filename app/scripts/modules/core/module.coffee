@@ -6,7 +6,7 @@ angular.module('creditsCore', [
 	'creditsSiteSubmission'
 ])
 
-	.constant('MODULES_PATH', '/scripts/modules')
+	.constant('MODULES_PATH', 'scripts/modules')
 
 	.config ($routeProvider, MODULES_PATH) ->
 		

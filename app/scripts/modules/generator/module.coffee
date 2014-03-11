@@ -5,7 +5,7 @@ angular.module('creditsGenerator', [
 	'ngAutocomplete'
 ])
 
-	.constant('MODULES_PATH', '/scripts/modules')
+	.constant('MODULES_PATH', 'scripts/modules')
 
 	.config (MODULES_PATH, $routeProvider) ->
 
